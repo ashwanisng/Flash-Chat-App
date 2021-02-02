@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
+              Flexible(
                 child: Container(
                   child: Image.asset('images/logo.png'),
                 ),
@@ -125,7 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     elevation: 5.0,
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/chat_screen');
+                      },
                       child: Text('Sign In'),
                       height: 42.0,
                       minWidth: 200.0,

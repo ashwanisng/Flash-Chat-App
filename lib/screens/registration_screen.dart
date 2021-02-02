@@ -20,7 +20,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
+              Flexible(
                 child: Container(
                   child: Image.asset('images/logo.png'),
                 ),
@@ -133,7 +133,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   elevation: 5.0,
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/chat_screen');
+                    },
                     child: Text('Register'),
                     minWidth: 200.0,
                     height: 42.0,
