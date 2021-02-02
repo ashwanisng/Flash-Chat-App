@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-import 'package:flash_chat/screens/welcome_screen.dart';
+import 'package:flash_chat/screens/login_screen.dart';
+// import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             bodyText2: TextStyle(color: Colors.black),
           )),
-      home: WelcomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
