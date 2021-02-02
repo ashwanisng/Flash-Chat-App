@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
           primaryColor: kBlueColor,
           textTheme: TextTheme(
-            bodyText1: TextStyle(color: Colors.black),
+            bodyText2: TextStyle(color: Colors.black),
           )),
       home: WelcomeScreen(),
     );
