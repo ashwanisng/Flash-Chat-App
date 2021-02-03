@@ -6,33 +6,70 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Animation animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+      duration: Duration(
+        seconds: 1,
+      ),
+      vsync: this,
+    );
+
+    controller.addListener(() {
+      setState(() {});
+      print(animation.value);
+    });
+    controller.forward();
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: SafeArea(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: animation.value,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                children: [
-                  Image.asset(
-                    'images/logo.png',
-                    fit: BoxFit.cover,
-                    height: 60.0,
-                  ),
-                  Text(
-                    'Flash Chat',
-                    style: TextStyle(
-                      fontSize: 45.0,
-                      fontWeight: FontWeight.w900,
+              Flexible(
+                child: Row(
+                  children: [
+                    Hero(
+                      tag: 'logo',
+                      child: Container(
+                        child: Image.asset(
+                          'images/logo.png',
+                          height: 55,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                    Text(
+                      'Flash Chat',
+                      style: TextStyle(
+                        fontSize: 45.0,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 48.0,
