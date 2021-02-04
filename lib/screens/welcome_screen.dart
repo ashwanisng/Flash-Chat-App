@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/components/round_button.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 
@@ -79,37 +79,19 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               SizedBox(
                 height: 48.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Material(
-                  color: kLightBlueColor,
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/login_screen');
-                    },
-                    height: 42.0,
-                    minWidth: 200.0,
-                    child: Text("Log In"),
-                  ),
-                ),
+              RoundedButton(
+                buttonText: 'Log In',
+                buttonColor: kLightBlueColor,
+                onpress: () {
+                  Navigator.pushNamed(context, '/login_screen');
+                },
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Material(
-                  color: kBlueColor,
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/registration_screen');
-                    },
-                    height: 42.0,
-                    minWidth: 200.0,
-                    child: Text("Register"),
-                  ),
-                ),
+              RoundedButton(
+                buttonColor: kBlueColor,
+                buttonText: 'Register',
+                onpress: () {
+                  Navigator.pushNamed(context, '/registration_screen');
+                },
               ),
             ],
           ),

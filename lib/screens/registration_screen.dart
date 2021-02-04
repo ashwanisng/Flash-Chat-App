@@ -1,3 +1,4 @@
+import 'package:flash_chat/components/round_button.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -127,23 +128,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               SizedBox(
                 height: 24.0,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Material(
-                  color: kBlueColor,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(32.0),
-                  ),
-                  elevation: 5.0,
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/chat_screen');
-                    },
-                    child: Text('Register'),
-                    minWidth: 200.0,
-                    height: 42.0,
-                  ),
-                ),
+              RoundedButton(
+                buttonColor: kBlueColor,
+                buttonText: 'Register',
+                onpress: () {
+                  Navigator.pushNamed(context, '/chat_screen');
+                },
               ),
             ],
           ),
