@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -22,13 +23,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       vsync: this,
     );
 
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+
+    controller.forward();
+
     controller.addListener(() {
       setState(() {});
       print(animation.value);
     });
-    controller.forward();
-    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
-        .animate(controller);
   }
 
   @override
@@ -56,14 +59,16 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       child: Container(
                         child: Image.asset(
                           'images/logo.png',
-                          height: 55,
+                          height: 60.0,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                    Text(
-                      'Flash Chat',
-                      style: TextStyle(
+                    TypewriterAnimatedTextKit(
+                      text: ['Flash Chat'],
+                      speed: Duration(milliseconds: 300),
+                      textStyle: TextStyle(
+                        color: Colors.black,
                         fontSize: 45.0,
                         fontWeight: FontWeight.w900,
                       ),
