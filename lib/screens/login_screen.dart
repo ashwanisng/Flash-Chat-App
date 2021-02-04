@@ -35,34 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.black,
                 ),
                 onChanged: (value) {},
-                decoration: InputDecoration(
-                  hintText: 'Enter your email',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: Colors.grey,
-                  ),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: kBlueColor,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: kBlueColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
-                  ),
-                ),
+                decoration:
+                    kTextFeildDecoration.copyWith(hintText: 'Enter your email'),
               ),
               SizedBox(
                 height: 8.0,
@@ -74,46 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   color: Colors.black,
                 ),
-                decoration: InputDecoration(
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-                  filled: true,
-                  fillColor: Colors.white,
-                  prefixIcon: Icon(
-                    Icons.enhanced_encryption,
-                    color: Colors.grey,
-                  ),
-                  suffixIcon: Icon(
-                    Icons.remove_red_eye,
-                    color: Colors.grey,
-                  ),
+                decoration: kTextFeildDecoration.copyWith(
                   hintText: 'Enter your password',
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: kBlueColor,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: kBlueColor,
-                      width: 2.0,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
-                  ),
+                  suffixIcon: Icon(Icons.remove_red_eye),
+                  prefixIcon: Icon(Icons.enhanced_encryption),
                 ),
               ),
               SizedBox(
