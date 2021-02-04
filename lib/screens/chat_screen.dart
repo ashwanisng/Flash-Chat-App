@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -39,8 +37,12 @@ class _ChatScreenState extends State<ChatScreen> {
         backgroundColor: kLightBlueColor,
         leading: null,
         actions: [
-          Icon(
-            Icons.logout,
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              _auth.signOut();
+              Navigator.pop(context);
+            },
           ),
         ],
         title: Text('Flash Chat⚡️'),
