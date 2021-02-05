@@ -33,6 +33,34 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  // void getMessages() async {
+  //*  its also correct
+  //   final messages = await _firestore.collection('messages').get();
+
+  //   for (var message in messages.docs) {
+  //     print(message.data());
+  //   }
+  // }
+
+  void messagesStream() async {
+    await for (var snap in _firestore.collection('messages').snapshots()) {
+      for (var message in snap.docs) {
+        print(message.data());
+      }
+    }
+  }
+
+  // void getMessageStream() {
+  //* its also correct
+  //   _firestore.collection('messages').get().then(
+  //         (value) => value.docs.forEach(
+  //           (element) {
+  //             print(element.data());
+  //           },
+  //         ),
+  //       );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +71,11 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () {
-              _auth.signOut();
-              Navigator.pop(context);
+              // _auth.signOut();
+              // Navigator.pop(context);
+              // getMessageStream();
+              // getMessages();
+              messagesStream();
             },
           ),
         ],
