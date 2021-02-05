@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/utilities/constants.dart';
@@ -89,6 +91,34 @@ class _ChatScreenState extends State<ChatScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              StreamBuilder<QuerySnapshot>(
+                stream: _firestore.collection('messages').snapshots(),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return CircularProgressIndicator(
+                      backgroundColor: kBlueColor,
+                    );
+                  }
+                  final messages = snapshot.data.docs;
+                  List<Text> messageWidgets = [];
+                  for (var msg in messages) {
+                    final messageText = msg.data()['text'];
+                    final messageSender = msg.data()['sender'];
+                    final messageWidget = Text(
+                      '$messageText from $messageSender',
+                      style: TextStyle(
+                        fontSize: 50.0,
+                      ),
+                    );
+                    messageWidgets.add(messageWidget);
+                  }
+                  return Expanded(
+                    child: ListView(
+                      children: messageWidgets,
+                    ),
+                  );
+                },
+              ),
               Container(
                 decoration: kMessageContainsDecoration,
                 child: Row(
@@ -118,7 +148,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         Icons.send,
                         color: kBlueColor,
                       ),
-                    )
+                    ),
                   ],
                 ),
               )
