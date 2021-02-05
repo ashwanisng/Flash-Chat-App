@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 const kBlueColor = Color(0xFF054BA6);
 const kLightBlueColor = Color(0xFF0477BF);
+const kPurpleColor = Color(0xFF5B61B9);
+const kWhiteColor = Color(0xFFF7F7F8);
 
 const kMessageTextFeildDecoration = InputDecoration(
   hintText: 'Type your message here...',

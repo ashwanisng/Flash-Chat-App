@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flash_chat/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class MessagesBubble extends StatelessWidget {
-  MessagesBubble({this.sender, this.text, this.isMe});
+  MessagesBubble({this.sender, this.text, this.isMe, this.time});
   final String text;
   final String sender;
   final bool isMe;
+  final Timestamp time;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class MessagesBubble extends StatelessWidget {
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Text(
-            sender,
+            '$sender ${time.toDate()}',
             style: TextStyle(
               fontSize: 12.0,
               color: Colors.black54,
@@ -23,7 +26,7 @@ class MessagesBubble extends StatelessWidget {
           ),
           Material(
             elevation: 5.0,
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
+            color: isMe ? kPurpleColor : kWhiteColor,
             borderRadius: isMe
                 ? BorderRadius.only(
                     topLeft: Radius.circular(30.0),

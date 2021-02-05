@@ -69,7 +69,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kLightBlueColor,
+        backgroundColor: kPurpleColor,
         leading: null,
         actions: [
           IconButton(
@@ -117,13 +117,14 @@ class _ChatScreenState extends State<ChatScreen> {
                         messageController.clear();
                         _firestore.collection('messages').add({
                           'text': messageText,
-                          'sender': loggedInUser.email
+                          'sender': loggedInUser.email,
+                          'time': DateTime.now(),
                         });
                       },
                       hoverColor: kLightBlueColor,
                       child: Icon(
                         Icons.send,
-                        color: kBlueColor,
+                        color: kPurpleColor,
                       ),
                     ),
                   ],
@@ -153,16 +154,19 @@ class MessageStream extends StatelessWidget {
         for (var msg in messages) {
           final messageText = msg.data()['text'];
           final messageSender = msg.data()['sender'];
+          final messageTime = msg.data()['time'];
 
           final currentUser = loggedInUser.email;
 
           final messageBubble = MessagesBubble(
             text: messageText,
             sender: messageSender,
+            time: messageTime,
             isMe: currentUser == messageSender,
           );
 
           messageBubbles.add(messageBubble);
+          messageBubbles.sort((a, b) => b.time.compareTo(a.time));
         }
         return Expanded(
           child: ListView(
