@@ -1,16 +1,23 @@
-# flash_chat
+# Flash Chat App
 
-A new Flutter project.
+![Issues](https://img.shields.io/github/issues/ashwanisng/Flash-Chat-App)
+![Pull Requests](https://img.shields.io/github/issues-pr/ashwanisng/Flash-Chat-App?)
+![Forks](https://img.shields.io/github/forks/ashwanisng/Flash-Chat-App)
+![Stars](https://img.shields.io/github/stars/ashwanisng/Flash-Chat-App)
+![License](https://img.shields.io/github/license/ashwanisng/Flash-Chat-App)
 
-## Getting Started
+[![Twitter Follow](https://img.shields.io/twitter/follow/ashwanisng.svg?style=social)](https://twitter.com/ashwanisng)
 
-This project is a starting point for a Flutter application.
+FlashChat is a simple, group texting application that allows users to communicate free of cost without any limitations
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center"><img src="images/logo.png" width=35%></p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<br> Please star⭐ the repo if you like what you see😉.
+
+## 💻 Requirements
+
+- Any Operating System (ie. MacOS X, Linux, Windows)
+- Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
+- A little knowledge of Dart and Flutter
+
